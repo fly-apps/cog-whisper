@@ -22,7 +22,5 @@ build:
     - "ffmpeg-python==0.2.0"
     - "openai-whisper==20230308"
 
-image: "registry.fly.io/cog-whisper:latest"
-
 # predict.py defines how predictions are run on your model
 predict: "predict.py:Predictor"

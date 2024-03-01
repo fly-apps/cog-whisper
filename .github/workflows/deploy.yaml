@@ -1,0 +1,28 @@
+name: Build and Deploy
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v3
+
+      - name: Auth to Fly Registry
+        uses: superfly/flyctl-actions/setup-flyctl@master
+
+      - name: Do something amazing
+        run: flyctl status --json | jq .ID >> "$GITHUB_OUTPUT" && flyctl auth docker
+        env:
+          FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
+
+      - name: Setup Cog
+        uses: replicate/setup-cog@v1
+        with:
+          install-cuda: false
+          cog-version: v0.9.4
+
+      - name: Push to Fly Registry
+        run: cog push registry.fly.io/cog-whisper:latest --use-cuda-base-image false
