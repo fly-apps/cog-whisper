@@ -1,3 +1,5 @@
+# License disclaimer - this code has been modified from the original version to fix a standing bug in the original code
+
 import io
 import os
 from typing import Optional, Any

@@ -1,8 +1,7 @@
-app = "cog-whisper"
-primary_region = "ord"
+
 
 [build]
-    image = "registry.fly.io/cog-whisper:latest"
+    image = "registry.fly.io/<YOUR IMAGE REPO:TAG>"
 
 [experimental]
     cmd = ["./start.sh"]
