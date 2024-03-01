@@ -2,6 +2,9 @@ name: Build and Deploy
 
 on: [workflow_dispatch]
 
+env:
+  FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
+
 jobs:
   build:
     name: Build Cog Image
@@ -15,10 +18,8 @@ jobs:
             cog-version: v0.9.4
         - run: flyctl auth docker
         - id: getApp
-          run: echo "APP_NAME=$(flyctl status --json | jq -r .app.name)" >> $GITHUB_ENV
+          run: echo "APP_NAME=$(flyctl status --json | jq -r .ID)" >> $GITHUB_ENV
         - run: cog push registry.fly.io/${{ env.APP_NAME }}:latest --use-cuda-base-image false
-          env:
-            FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
 
   deploy:
     name: Deploy Cog to Fly
@@ -27,5 +28,3 @@ jobs:
         - uses: actions/checkout@v3
         - uses: superfly/flyctl-actions/setup-flyctl@master
         - run: flyctl deploy
-          env:
-            FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
