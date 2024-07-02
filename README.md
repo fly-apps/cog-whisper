@@ -1,3 +1,6 @@
-# Run Replicate Cog on Fly.io
+<div align="center">
+    <h1>Whisper on Fly GPUs</h1>
+    <p>Run OpenAI Whisper as a Replicate Cog on Fly.io!</p>
+</div>
 
-[![asciicast](https://asciinema.org/a/oINJOmsJooWuEp17oi6RgUteS.svg)](https://asciinema.org/a/oINJOmsJooWuEp17oi6RgUteS)
+![cog](https://github.com/fly-apps/cog-whisper/assets/3727384/4d757f88-29c1-4966-ace9-01d0b1a630ac)
