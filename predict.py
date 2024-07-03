@@ -11,7 +11,7 @@ from whisper.tokenizer import LANGUAGES, TO_LANGUAGE_CODE
 from whisper.utils import format_timestamp
 
 MODEL_CACHE = "weights"
-BASE_URL = f"https://weights.replicate.delivery/default/whisper-v3/{MODEL_CACHE}/"
+BASE_URL = f"https://fly.storage.tigris.dev/weights/models/whisper/"
 
 
 class ModelOutput(BaseModel):

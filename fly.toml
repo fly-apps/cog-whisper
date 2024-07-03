@@ -4,7 +4,7 @@
     image = "ghcr.io/fly-apps/cog-whisper:latest"
 
 [experimental]
-    cmd = ["./start.sh"]
+    cmd = ["python -m cog.server.http"]
 
 [env]
     COG_LOG_LEVEL = "debug"
@@ -33,7 +33,3 @@
     source = 'data'
     destination = '/src/weights'
     initial_size = '10G'
-
-[[files]]
-    guest_path = "/src/start.sh"
-    local_path = "./start.sh"
