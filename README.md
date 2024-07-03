@@ -11,13 +11,13 @@ This app exposes the Whisper model via a simple HTTP server, thanks to Replicate
 
 Create a deploy the app in one single command:
 
-```bash
+```console
 fly launch --from https://github.com/fly-apps/cog-whisper --no-public-ips
 ```
 
 Assign a [Flycast](https://fly.io/docs/networking/private-networking/#flycast-private-load-balancing) IP to the app:
 
-```bash
+```console
 fly ips allocate-v6 --private
 ```
 
@@ -28,7 +28,7 @@ That's it! You can now access the app at `http://<APP_NAME>.flycast/predictions`
 
 ## Usage
 
-```bash
+```console
 curl -X PUT \
      -H "Content-Type: application/json" \
      -d '{
@@ -44,28 +44,29 @@ curl -X PUT \
 
 1. Clone the `cog-whisper` repository from GitHub:
 
-    ```bash
+    ```console
     git clone git@github.com:fly-apps/cog-whisper.git
     ```
 
 2. Navigate into the cloned directory:
 
-    ```bash
+    ```console
     cd cog-whisper
     ```
     
-3. Run local predictions. First, run `get_weights.sh` from the project root to download pre-trained weights:
-    ```bash
+3. Run locally. First, run `get_weights.sh` from the project root to download pre-trained weights, then build a container and run predictions:
+
+    ```console
     ./scripts/get_weights.sh:
     ```
-  You can then build a container and run predictions like so:
-    ```bash
+
+    ```console
     cog predict -i audio="<path/to/your/audio/file>"
     ```
 
 4. Build the Docker image using `cog`:
 
-    ```bash
+    ```console
     cog build -t whisper
     ```
 

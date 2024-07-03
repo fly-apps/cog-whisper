@@ -1,0 +1,4 @@
+fly.toml
+sdk/*
+.github/*
+.git/*
