@@ -1,7 +1,7 @@
 
 
 [build]
-    image = "registry.fly.io/<YOUR IMAGE REPO:TAG>"
+    image = "ghcr.io/fly-apps/cog-whisper:latest"
 
 [experimental]
     cmd = ["./start.sh"]
