@@ -40,6 +40,35 @@ curl -X PUT \
 
 ```
 
+## Local Setup
+
+1. Clone the `cog-whisper` repository from GitHub:
+
+    ```bash
+    git clone git@github.com:fly-apps/cog-whisper.git
+    ```
+
+2. Navigate into the cloned directory:
+
+    ```bash
+    cd cog-whisper
+    ```
+    
+3. Run local predictions. First, run `get_weights.sh` from the project root to download pre-trained weights:
+    ```bash
+    ./scripts/get_weights.sh:
+    ```
+  You can then build a container and run predictions like so:
+    ```bash
+    cog predict -i audio="<path/to/your/audio/file>"
+    ```
+
+4. Build the Docker image using `cog`:
+
+    ```bash
+    cog build -t whisper
+    ```
+
 ## Having trouble?
 
 Create an issue or ask a question here: https://community.fly.io/
