@@ -21,4 +21,7 @@ jobs:
           with:
             install-cuda: false
             cog-version: v0.9.12
-        - run: cog push ghcr.io/fly-apps/cog-whisper:latest --use-cuda-base-image false
+        - run: |
+            cog push ghcr.io/fly-apps/cog-whisper:latest --use-cuda-base-image false
+          env:
+            GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
