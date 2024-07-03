@@ -17,6 +17,13 @@
     min_machines_running = 0
     processes = ['app']
 
+    [[http_service.checks]]
+    grace_period = "60s"
+    interval = "30s"
+    method = "GET"
+    timeout = "5s"
+    path = "/"
+
 [[vm]]
     size = "performance-8x"
     memory = "16gb"
