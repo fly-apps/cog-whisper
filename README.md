@@ -15,7 +15,7 @@ Create a deploy the app in one single command:
 fly launch --from https://github.com/fly-apps/cog-whisper --no-public-ips
 ```
 
-Assign a [Flycast](https://fly.io/docs/networking/private-networking/#flycast-private-load-balancing) IP to the app:
+Assign a [Flycast](https://fly.io/docs/networking/private-networking/#assign-a-flycast-address) IP to the app:
 
 ```console
 fly ips allocate-v6 --private
